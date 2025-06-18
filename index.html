@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Expense Tracker</h1>
+    </header>
+    
+    <main class="app-main">
+      <section class="balance-section">
+        <div class="balance-container">
+          <h2>Your Balance</h2>
+          <div id="total-balance" class="total">Rwf0.00</div>
+          <div class="summary">
+            <div class="income">
+              <h4>Income</h4>
+              <div id="total-income" class="amount positive">+Rwf0.00</div>
+            </div>
+            <div class="expense">
+              <h4>Expense</h4>
+              <div id="total-expense" class="amount negative">-Rwf0.00</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="form-section">
+        <form id="expense-form" class="expense-form">
+          <h2 id="form-title">Add New Expense</h2>
+          
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" required>
+            <span id="description-error" class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" min="0.01" step="0.01" required>
+            <span id="amount-error" class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+            <span id="date-error" class="error-message"></span>
+          </div>
+          
+          <div class="form-group radio-group">
+            <label>
+              <input type="radio" name="type" value="income" checked>
+              Income
+            </label>
+            <label>
+              <input type="radio" name="type" value="expense">
+              Expense
+            </label>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" id="cancel-btn" class="cancel-btn" style="display: none;">
+              Cancel
+            </button>
+            <button type="submit" class="submit-btn">
+              Add Expense
+            </button>
+          </div>
+        </form>
+      </section>
+      
+      <section class="list-section">
+        <div class="expense-list">
+          <h2>Expense History</h2>
+          <ul id="expenses-list"></ul>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="app-footer">
+      <p>© <span id="year"></span> Expense Tracker</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
